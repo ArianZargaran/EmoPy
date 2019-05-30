@@ -1,6 +1,6 @@
 from keras.models import load_model
 import cv2
-from scipy import misc
+import imageio
 import numpy as np
 import json
 from pkg_resources import resource_filename
@@ -50,7 +50,7 @@ class FERModel:
 
         :param images: image file (jpg or png format)
         """
-        image = misc.imread(image_file)
+        image = imageio.imread(image_file)
         gray_image = image
         if len(image.shape) > 2:
             gray_image = cv2.cvtColor(image, code=cv2.COLOR_BGR2GRAY)
